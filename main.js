@@ -12,21 +12,25 @@ let string = "The quick brown fox jumps over the lazy dog and the sleeping cat e
 let stringObj = {}
 let count = 0
 let wordOccurence = (string) => {
+    // assigns the string that is fed in to splitString.  Splits the string on each letter
     let splitString = string.toLowerCase().split('');
-    //return splitString
+    //Calls forEach on splitString.  stringObj is set to splitString to add the seperated characters into the object
     splitString.forEach(element => {
         
         stringObj = splitString;
-         //if(element in stringObj){
-             
-        //      // If the element is in the object add one to the value for the element key
+         if(splitString in stringObj){
+               console.log("ITS HERE")
+             // If the element is in the object add one to the value for the element key
         //     console.log("test")
-        // } else {
-        //     //stringObj = stringObj.element
-        //     // if the element is not in the object then add element as key in the object and set value to 1
-        // }
-    });
+         } else {
+             count++
+            console.log("Hit the else statement")  
+            console.log(Object.keys(stringObj))
+            console.log(Object.values(stringObj))
+             // if the element is not in the object then add element as key in the object and set value to 1
+         }
+    })
 }
 
-console.log(wordOccurence(string))
+console.log(wordOccurence("hey"))
 console.log(stringObj)
