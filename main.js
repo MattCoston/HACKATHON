@@ -1,36 +1,19 @@
-'use strict'
-// wordOccurence takes a string that then is split and letters are counted and returns the amount of times any letter shows up in that string
-
-//loop through characters in a string
-//count each
-//.split? to array
-// record how many times a letter occurs
-// for each char in string pop into a new array
-
-let string = "The quick brown fox jumps over the lazy dog and the sleeping cat early in the day."
-//if character was seen before record 
-let stringObj = {}
-let count = 0
-let wordOccurence = (string) => {
-    // assigns the string that is fed in to splitString.  Splits the string on each letter
-    let splitString = string.toLowerCase().split('');
-    //Calls forEach on splitString.  stringObj is set to splitString to add the seperated characters into the object
-    splitString.forEach(element => {
-        
-        stringObj = splitString;
-         if(splitString in stringObj){
-               console.log("ITS HERE")
-             // If the element is in the object add one to the value for the element key
-        //     console.log("test")
-         } else {
-             count++
-            console.log("Hit the else statement")  
-            console.log(Object.keys(stringObj))
-            console.log(Object.values(stringObj))
-             // if the element is not in the object then add element as key in the object and set value to 1
-         }
-    })
+'use strict';
+//I created a function called word occcurence where i will count the instances
+//that a letter appears in a given string!
+let wordOccurrence = (string) => {
+let stringObj = {};//I create an empty object that will hold my keys and values
+//I will then do a for loop in order to loop through the given string
+for (let i = 0; i <string.length; i++){
+let splitString = string[i];//Here i created a variable for the letter at a given index of 'string'
+if (!stringObj[splitString]){//this is saying that if the index isnt inside the object
+stringObj[splitString] = 0;//set it to ZERO
 }
+stringObj[splitString]++;//this is saying to move the count of the letter +1
 
-console.log(wordOccurence("hey"))
-console.log(stringObj)
+}
+return stringObj;// ALWAYS have to return something inside of a function or you will get undefined
+
+};
+
+console.log(wordOccurrence('the brown fox jumped over the lazy dog'));
